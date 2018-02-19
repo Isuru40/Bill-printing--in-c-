@@ -1,0 +1,48 @@
+ private void button38_Click(object sender, EventArgs e)
+        {
+            PrintDocument doc = new PrintDocument();
+            PrintDialog pd = new PrintDialog();
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            pd.Document = doc;
+            ppd.Document = doc;
+
+            doc.DefaultPageSettings.PaperSize = new PaperSize("", 330, 2000);
+
+
+
+            doc.PrintPage += new PrintPageEventHandler(doc_PrintPage_price_tag);
+
+            if (ppd.ShowDialog() == DialogResult.OK)
+            {
+                if (pd.ShowDialog() == DialogResult.OK)
+                {
+                    doc.Print();
+
+                }
+            }
+        }
+        
+          void doc_PrintPage_price_tag(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Font font = new Font("Cambria (Headings)", 12);
+            float fontHight = font.GetHeight();
+            Pen b = new Pen(Color.Black, 3);
+            // for (int d=0;d<200;)
+            {
+                for (int s = 0; s < 500;)
+                {
+                    if (checkBox13.Checked == true)
+                    {
+                        graphics.DrawImage(pictureBox6.Image, 15, 15 + s);
+                    }
+                    else
+                    {
+                        graphics.DrawRectangle(b, 10, 10 + s, 170, 120);
+                    } 
+                    graphics.DrawString("" + textBox42.Text.ToString() + "/=", new Font("Arial", 18), new SolidBrush(Color.Black), 40, 60 + s);
+                    s = s + 120;
+                }
+                //  d = d + 160;
+            }
+        }
