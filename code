@@ -1,4 +1,4 @@
- private void button38_Click(object sender, EventArgs e)
+ private void Print_the_bill_Click(object sender, EventArgs e)
         {
             PrintDocument doc = new PrintDocument();
             PrintDialog pd = new PrintDialog();
