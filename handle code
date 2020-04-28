@@ -1,1 +1,1 @@
- graphics.DrawString("" + textBox42.Text.ToString() + "/=", new Font("Arial", 18), new SolidBrush(Color.Black), 40, 60 + s);
+ graphics.DrawString("" + sales.Text.ToString() + "/=", new Font("Arial", 18), new SolidBrush(Color.Black), 40, 60 + s);
